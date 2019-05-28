@@ -1,13 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head> 
-    {%if title%}    
-    <title>{{title}}</title>
-    {%else%}
-    <title>Welcome to Pitchori</title>
-    {%endif%}
-</head>
-<body>
+{% extends 'base.html' %}    
+    {% block content %}
+<div class="container-fluid" >
+    <div  style="background-color:#16d335; padding-top: 130px;" class="row">
+        
+        <div class="col-md-2">
+        <img src= "https://cdn-images-1.medium.com/max/720/1*el6QLjOh4tvvG9O-wN-h2A@2x.png" height="150px">
+        </div>
+        <div class="col-md-8">
+        <a href="{{ url_for('main.new_pitch') }}"><button style="color: black;" class="btn btn-outline-info btn-sm">POST A PITCH</button></a>
+            <br>
+            <br>
+            {% for pitch in pitchs %} 
+                <div style="background-color:#1baab4;" class="card">
+                    <article class="media content-section">
+                        <div class="card-title">
+                            <div class="article-metadata">
+                              
+                            </div>
+                            <div class="card-body">
+                            <small> {{ pitch.posted_on }}</small>
+                            <h4>Category: {{ pitch.category }}</h4>
+                            <small> {{ pitch.title }} </small>
+                            
+                            <p> {{ pitch.content }}</p>
+                            <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://summericeworld.files.wordpress.com/2015/06/smiley-face-clip-art-thumbs-up-clipart-two-thumbs-up-happy-smiley-emoticon-512x512-eec61.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="http://clipart-library.com/images/gTe5xoLpc.gif" height="20px"></button></a></small>
+                            <br>
+                            <br>
+                            <div><a href="/comment/new/{{pitch.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+                            
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>   
+            {% endfor %}
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+
     
-</body>
-</html>
+</div>  
+{% endblock  %}

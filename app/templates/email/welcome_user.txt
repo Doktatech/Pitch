@@ -1,0 +1,2 @@
+Hello {{user.username}}
+Welcome to Pitchori.Youhave just registered on this platform. Enjoy your stay here.

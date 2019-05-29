@@ -10,9 +10,13 @@ app = Flask(__name__)
 
 @main.route("/")
 def index():
+    '''
+    Function that renders the main/landing page of our application
+    '''
    
    title = 'Home-Pitch Like a Pro'
    pitchs = Pitch.query.all()
+   
 
    return render_template('index.html', title= title, pitchs = pitchs)
 
@@ -81,8 +85,7 @@ def new_comment(id):
         comment_content = form.comment.data
 
         comment = Comment(comment_content= comment_content,pitch_id=id)
-
-        # pitch.save_pitch(pitch)
+        
         db.session.add(comment)
         db.session.commit()
         

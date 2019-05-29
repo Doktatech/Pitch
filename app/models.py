@@ -10,6 +10,9 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class User(UserMixin, db.Model):
+    '''
+    Class that defines a user object and commits to a database
+    '''
     __tablename__ = 'users'
     id = db.Column(db.Integer,  primary_key = True)
     username = db.Column(db.String(255))

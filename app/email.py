@@ -4,6 +4,9 @@ from . import mail
 import os
 
 def mail_message(subject,template,to,**kwargs):
+   '''
+      Function that sends a registering user a confirmation email
+   '''
    sender_email = os.environ.get('MAIL_USERNAME')
 
    email = Message(subject, sender=sender_email, recipients=[to])

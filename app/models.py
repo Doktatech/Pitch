@@ -57,6 +57,9 @@ class Pitch(db.Model):
         return f'{self.title}'
 
 class Comment(db.Model):
+    '''
+    Class for thhe comment object
+    '''
     __tablename__='comments'
 
     id = db.Column(db.Integer,primary_key=True)

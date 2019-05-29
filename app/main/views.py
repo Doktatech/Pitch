@@ -68,6 +68,9 @@ def update_pic(uname):
 @main.route('/pitch/new', methods=['GET','POST'])
 @login_required
 def new_pitch():
+    '''
+    Syntax that updates a pitch idea and commits to database
+    '''
     form = PitchForm()
 
     if form.validate_on_submit():

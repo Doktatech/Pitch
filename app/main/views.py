@@ -22,6 +22,9 @@ def index():
 
 @main.route('/user/<uname>')
 def profile(uname):
+    """
+        Function that renders a user profile
+    """
     user = User.query.filter_by(username = uname).first()
 
     return render_template("profile/profile.html", user = user)
@@ -29,6 +32,9 @@ def profile(uname):
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
 def update_profile(uname):
+    """
+        Syntax for updating the user profile
+    """
     user = User.query.filter_by(username = uname).first()
     if user is None:
         abort(404)

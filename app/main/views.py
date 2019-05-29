@@ -91,6 +91,10 @@ def new_pitch():
 @main.route('/comment/new/<int:id>', methods=['GET','POST'])
 @login_required
 def new_comment(id):
+    '''
+        Syntax that allows a users to comment on a pitch idea
+    '''
+
     form = CommentForm()
 
     if form.validate_on_submit():

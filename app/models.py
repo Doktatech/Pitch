@@ -37,6 +37,9 @@ class User(UserMixin, db.Model):
         return f'{self.username}'
 
 class Pitch(db.Model):
+    '''
+    Class that define  a new object (pitch ) and commits it into a database
+    '''
     __tablename__ = 'pitch'
 
     id = db.Column(db.Integer,primary_key = True)

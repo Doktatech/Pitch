@@ -26,6 +26,9 @@ def login():
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
+    '''
+     Syntax that registers a user after verifying details
+    '''
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
